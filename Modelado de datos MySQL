@@ -1,14 +1,5 @@
 MODELADO DE DATOS
 
-
-
-
-
-
-
-
-
-
 # Creación de base de datos 
 CREATE DATABASE proyecto CHARACTER SET utf8mb4;
 
