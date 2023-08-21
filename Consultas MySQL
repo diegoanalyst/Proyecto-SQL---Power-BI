@@ -1,0 +1,165 @@
+# Selección de base de datos a usar
+USE proyecto;
+
+/*TOP 10 comerciantes con más ventas*/
+SELECT c.id AS id_comerciante , c.nombre, c.apellido, SUM(p.total) AS total_ventas 
+FROM Comercial c
+INNER JOIN pedido p 
+ON c.id = p.id_Comercial
+GROUP BY c.id
+ORDER BY total_ventas DESC
+LIMIT 10;
+
+/*5 clientes que más dinero generarón a la empresa*/
+SELECT c.id, c.nombre, c.apellido, sum(p.total) as total_pedidos ,c.id,p.id_cliente
+FROM Cliente c
+INNER JOIN pedido p ON c.id = p.id_Cliente
+GROUP BY p.id_cliente
+ORDER BY total_pedidos DESC
+LIMIT 5;
+
+
+/*Cantidad media de pedidos por año  .*/
+SELECT YEAR(p.fecha),AVG(id)
+FROM PEDIDO P
+GROUP BY  YEAR(p.fecha)
+ORDER BY YEAR(p.fecha) ASC;
+
+#Ingresos por año
+SELECT YEAR(p.fecha) AS año, 
+TRUNCATE(SUM(p.total),2) AS ingresos
+FROM pedido p
+GROUP BY YEAR(p.fecha)
+ORDER BY YEAR(p.fecha) ASC;
+
+/*Número de pedidos según la categoria*/
+SELECT c.categoria, COUNT(c.categoria) AS numero_de_pedidos
+FROM pedido p 
+INNER JOIN cliente  c 
+ON P.id_cliente = c.id
+GROUP BY c.categoria
+ORDER BY numero_de_pedidos DESC;
+
+/*Total de ingresos.*/
+SELECT SUM(p.total) AS importe_total_pedidos
+FROM pedido p; 
+ 
+/*Numero total de pedidos*/
+SELECT COUNT(ID) AS numero_total_pedidos
+FROM pedido ; 
+ 
+ 
+/*Total de clientes */
+SELECT c.id, c.nombre, c.apellido,IF(ISNULL(p.total), 0, p.total) AS total_pedidos
+FROM Cliente c
+LEFT JOIN pedido p 
+ON p.id_Cliente = c.id
+GROUP BY c.id
+ORDER BY total_pedidos DESC;
+
+
+/*Ingresos por ciudad */
+SELECT c.ciudad, TRUNCATE (SUM(p.total),2) AS ingreso_total
+FROM Cliente c
+INNER JOIN pedido p 
+ON p.id_cliente = c.id
+GROUP BY c.ciudad
+ORDER BY ingreso_total DESC;
+
+# --------------------------------------------------------- PREGUNTAS DETALLADAS -----------------------------------------------------------------
+ 
+ 
+/* Pedidos de clientes ordenados por fecha*/
+SELECT  p.fecha, c.id AS id_cliente, p.id AS id_pedido, p.total
+FROM Cliente c
+INNER JOIN pedido p 
+ON c.id = p.id_Cliente
+WHERE c.id = p.id_cliente
+ORDER BY p.fecha;
+
+
+/* Precio medio por categoria*/
+SELECT c.categoria,TRUNCATE (AVG(p.total),2) AS precios_promedio
+FROM Cliente c
+INNER JOIN pedido p
+ON c.id = p.id_cliente
+GROUP BY c.categoria
+ORDER BY precios_promedio DESC;
+
+/* Comisión por comerciante */
+SELECT c.id, c.nombre, c.apellido, TRUNCATE (SUM(p.total * c.comisión),0) AS Comisiones
+FROM Comercial c
+INNER JOIN pedido p ON p.id_Comercial = c.id
+GROUP BY c.id
+ORDER BY comisiones DESC;
+
+
+
+/* Pedido de que mas ingresó generó a la empresa por año.*/
+SELECT YEAR(p.fecha), p.total
+FROM pedido p
+WHERE p.total = (SELECT MAX(pp.total) FROM pedido pp WHERE YEAR(pp.fecha) = YEAR(p.fecha))
+GROUP BY p.fecha
+ORDER BY p.fecha desc; 
+
+
+/* Número total de pedidos que se han realizado cada año.*/
+SELECT YEAR(p.fecha) AS año, 
+COUNT(p.id) AS cantidad_de_pedidos
+FROM pedido p
+GROUP BY YEAR(p.fecha)
+ORDER BY YEAR(p.fecha) DESC;
+
+#Lista de clientes del comerciante que más dinero genero a la empresa 
+SELECT c.id, c.nombre,c.apellido, TRUNCATE(SUM(p.total),0) AS total_pedidos
+FROM Comercial co
+INNER JOIN pedido p 
+ON co.id = p.id_comercial
+INNER JOIN Cliente c
+ON p.id_cliente = c.id
+WHERE p.id_comercial = (SELECT pp.id_comercial FROM pedido pp WHERE pp.total = 
+(SELECT MAX(ppp.total) FROM pedido ppp))
+GROUP BY c.id
+ORDER BY total_pedidos DESC;
+
+/*Clientes registrados que se deben eliminar porque no hicieron ningún pedido*/
+SELECT c.nombre, c.apellido
+FROM Comercial c
+LEFT JOIN pedido p ON c.id = p.id_Comercial
+WHERE p.id_Comercial IS NULL;
+
+
+/*Listado con los Clientes que no han realizado ningún pedido y de los Comerciales que no han
+participado en ningún pedido. */
+SELECT CONCAT('Cliente: ', c.nombre) AS nombre, c.apellido AS apellido_cliente
+FROM Cliente c
+LEFT JOIN pedido p ON c.id = p.id_Cliente
+WHERE NOT EXISTS( SELECT p.id FROM pedido p WHERE p.id_Cliente = c.id) 
+UNION ALL      -- USO UNION ALL YA QUE NO HAY REPETIDOS ENTRE CLIENTES Y COMERCIANTES  
+SELECT CONCAT('Comercial: ', c.nombre) AS nombre, c.apellido AS apellido_comerciante
+FROM Comercial c
+LEFT JOIN pedido p ON c.id = p.id_Comercial
+WHERE p.id_Comercial IS NULL
+ORDER BY nombre;
+
+#Precio promedio de los pedidos
+SELECT TRUNCATE (AVG(p.total),2) AS precio_promedio_total
+FROM pedido p;
+
+/*Mayor gasto durante el mismo día para cada uno de los clientes.*/ 
+SELECT c.id, c.nombre, p.fecha, p.total
+FROM Cliente c
+INNER JOIN pedido p ON c.id = p.id_Cliente
+WHERE p.total = (SELECT MAX(pp.total) 
+FROM pedido pp        
+WHERE DAY(pp.fecha) = DAY(p.fecha) AND p.id_Cliente = pp.id_Cliente);
+
+
+ #Número de pedidos por cliente en Sevilla.
+ SELECT c.id , c.nombre, c.apellido, count(p.id) AS numero_de_pedidos
+ FROM cliente c 
+ INNER JOIN pedido p
+ ON p.id_cliente = c.id 
+ WHERE c.ciudad = "Sevilla"
+ GROUP by c.id
+ ORDER BY numero_de_pedidos DESC;
