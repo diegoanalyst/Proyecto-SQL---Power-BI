@@ -49,8 +49,14 @@ También respondimos en MySQL las siguientes preguntas que pueden funcionar para
 ✅Lista de clientes del comercial con más ventas
 
 Creación del modelado de datos para el desarrollo del proyecto. Comparto el link 👉🏼
+https://github.com/diegoanalyst/Proyecto-SQL---Power-BI/edit/main/Modelado%20de%20datos%20MySQL
+
+Diagrama entidad relacion del proyecto. Comparto el link 👉🏼
+https://github.com/diegoanalyst/Proyecto-SQL---Power-BI/blob/main/Modelado%20de%20datos.png
 
 El análisis y las respuestas a las preguntas formuladas lo realicé mediante MySQL. Comparto el link 👉🏼
+https://github.com/diegoanalyst/Proyecto-SQL---Power-BI/blob/main/Consultas%20MySQL
 
-El Dashboard que lo realice con Power BI. Comparto el link 👉🏼
+El Dashboard lo realice con Power BI. Comparto el link 👉🏼
+https://www.novypro.com/project/análisis-de-ventas-power-bi-1
 
