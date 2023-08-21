@@ -5,6 +5,7 @@
 
 
 Una empresa tiene en su base de datos una lista de clientes, comerciantes y pedidos. Debido a la volatilidad en las ventas que tuvo la empresa en los últimos años por la situación económica el dueño de la empresa requiere obtener un análisis sobre la categoría, ubicación y gastos de los clientes,de igual manera obtener información relevante sobre los empleados que más ingresos generaron a la empresa, y basándonos en los resultados poder tomar distintas decisiones para retener talento y clientes potenciales.
+
 Para encontrar la información solicitada se formularon las siguientes preguntas que fueron respondidas tanto en MySQL como en un Dashboard de Power BI:
 
 ✅ ¿Cuáles son los comerciantes que generaron mayores ingresos a la empresa?
@@ -40,7 +41,6 @@ También respondimos en MySQL las siguientes preguntas que pueden funcionar para
 ✅Comerciales que no han concretado ningún pedido.
 
 ✅Clientes que se deben eliminar del sistema porque no realizarón ningún pedido
-
 
 ✅Mostrar el mayor ingreso de los pedidos realizados durante el mismo día para cada uno de los clientes.
 
