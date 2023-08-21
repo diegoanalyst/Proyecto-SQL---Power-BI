@@ -28,14 +28,24 @@ Para encontrar la información solicitada se formularon las siguientes preguntas
 También respondimos en MySQL las siguientes preguntas que pueden funcionar para obtener más información detallada, como también para otro tipo de análisis que se pueda implementar en el futuro:
 
 ✅¿Cuál es el precio medio por categoría?
+
 ✅¿Qué comerciante gano más comisiones?
+
 ✅¿Cuál es el total de clientes registrados?
+
 ✅Pedidos de clientes ordenados por fecha
+
 ✅ ¿Cuál es número de pedidos por año?
+
 ✅Comerciales que no han concretado ningún pedido.
+
 ✅Clientes que se deben eliminar del sistema porque no realizarón ningún pedido
+
+
 ✅Mostrar el mayor ingreso de los pedidos realizados durante el mismo día para cada uno de los clientes.
+
 ✅Número de pedidos por cliente en Sevilla.
+
 ✅Lista de clientes del comercial con más ventas
 
 Creación del modelado de datos para el desarrollo del proyecto. Comparto el link 👉🏼
