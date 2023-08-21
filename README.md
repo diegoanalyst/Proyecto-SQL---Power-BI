@@ -8,12 +8,19 @@ Una empresa tiene en su base de datos una lista de clientes, comerciantes y pedi
 Para encontrar la información solicitada se formularon las siguientes preguntas que fueron respondidas tanto en MySQL como en un Dashboard de Power BI:
 
 ✅ ¿Cuáles son los comerciantes que generaron mayores ingresos a la empresa?
+
 ✅¿Cuáles son los clientes que más ingreso generaron en la empresa? 
+
 ✅¿Cuál es la cantidad media de pedidos por año?
+
 ✅¿Cuál es él ingresó por ciudad?
+
 ✅¿Cuál es el ingreso por año?
+
 ✅ ¿Cuál es el número de pedidos por categoría?
+
 ✅ Total de clientes
+
 ✅ Total de pedidos 
 
 
