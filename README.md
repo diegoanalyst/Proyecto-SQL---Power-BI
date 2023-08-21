@@ -8,21 +8,21 @@ Una empresa tiene en su base de datos una lista de clientes, comerciantes y pedi
 
 Para encontrar la información solicitada se formularon las siguientes preguntas que fueron respondidas tanto en MySQL como en un Dashboard de Power BI:
 
-✅ ¿Cuáles son los comerciantes que generaron mayores ingresos a la empresa?
+✅¿Cuáles son los comerciantes que generaron mayores ingresos a la empresa?
 
-✅¿Cuáles son los clientes que más ingreso generaron en la empresa? 
+✅¿Cuáles son los clientes que más ingresos generaron en la empresa? 
 
 ✅¿Cuál es la cantidad media de pedidos por año?
 
 ✅¿Cuál es él ingresó por ciudad?
 
-✅¿Cuál es el ingreso por año?
+✅¿Cuál es el ingresó por año?
 
-✅ ¿Cuál es el número de pedidos por categoría?
+✅¿Cuál es el número de pedidos por categoría?
 
-✅ Total de clientes
+✅Total de clientes
 
-✅ Total de pedidos 
+✅Total de pedidos 
 
 
 
@@ -36,13 +36,13 @@ También respondimos en MySQL las siguientes preguntas que pueden funcionar para
 
 ✅Pedidos de clientes ordenados por fecha
 
-✅ ¿Cuál es número de pedidos por año?
+✅¿Cuál es número de pedidos por año?
 
 ✅Comerciales que no han concretado ningún pedido.
 
 ✅Clientes que se deben eliminar del sistema porque no realizarón ningún pedido
 
-✅Mostrar el mayor ingreso de los pedidos realizados durante el mismo día para cada uno de los clientes.
+✅Mostrar el mayor ingresó de los pedidos realizados durante el mismo día para cada uno de los clientes.
 
 ✅Número de pedidos por cliente en Sevilla.
 
@@ -53,12 +53,12 @@ Creación del modelado de datos para el desarrollo del proyecto. Comparto el lin
 
 https://github.com/diegoanalyst/Proyecto-SQL---Power-BI/edit/main/Modelado%20de%20datos%20MySQL
 
-Diagrama entidad relacion del proyecto. Comparto el link 👇
+Diagrama entidad relación del proyecto. Comparto el link 👇
 
 
 https://github.com/diegoanalyst/Proyecto-SQL---Power-BI/blob/main/Modelado%20de%20datos.png
 
-El análisis y las respuestas a las preguntas formuladas lo realicé mediante MySQL. Comparto el link 👇
+El análisis y las respuestas a las preguntas formuladas lo realice mediante MySQL. Comparto el link 👇
 
 
 https://github.com/diegoanalyst/Proyecto-SQL---Power-BI/blob/main/Consultas%20MySQL
